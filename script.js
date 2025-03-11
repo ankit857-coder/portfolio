@@ -11,6 +11,25 @@ document.addEventListener('DOMContentLoaded', function() {
         const width = bar.dataset.width; // Get the width from the data attribute
         bar.style.width = width + '%'; // Set the width
     });
+
+    // Mobile menu functionality
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('nav ul');
+    
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                hamburger.classList.remove('active');
+            });
+        });
+    }
 });
 
 // Typing Animation
